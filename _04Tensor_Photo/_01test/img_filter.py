@@ -34,7 +34,7 @@ h = img1.shape[0]
 # 补边(补多大: kernel为3,补1, 5,补2)
 padding_width = 1
 # 分配新矩阵
-nimg = np.zeros((img1.shape[0]+padding_width,img1.shape[1]+padding_width*2,4),dtype=np.float32)
+nimg = np.zeros((img1.shape[0]+padding_width*2,img1.shape[1]+padding_width*2,4),dtype=np.float32)
 # 拷贝数据
 nimg[
     padding_width:padding_width+img1.shape[0],
