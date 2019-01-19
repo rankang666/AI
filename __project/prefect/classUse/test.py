@@ -19,10 +19,10 @@ if __name__ == "__main__":
     # driver.getFace()
 
     # 训练数据集，将结果保存
-    # faceTrain = FaceTP(inputdir, outputdir)
-    # train_x, train_y, index2name = faceTrain.getTrain()
-    # cnn = CnnNet(train_x, train_y, savepath)
-    # cnn.train()
+    faceTrain = FaceTP(inputdir, outputdir)
+    train_x, train_y, index2name = faceTrain.getTrain()
+    cnn = CnnNet(train_x, train_y, savepath)
+    cnn.train()
 
     FaceTP.predict(faceClassifyPath, outputdir, savepath)
 

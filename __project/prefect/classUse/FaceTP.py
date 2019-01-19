@@ -48,7 +48,7 @@ class FaceTP:
             for name in os.listdir(inputdir):
                 inputname, outputname = os.path.join(inputdir, name), os.path.join(outputdir, name)
                 if os.path.isdir(inputname):
-                    Utils.createdir(outputname)
+                    Utils.createDir(outputname)
                     for fileitem in Utils.getFilesInpath(inputname):
                         # 2. 进行灰度处理,保存到新的目录
                         # 取得原来的文件名_索引.jpg

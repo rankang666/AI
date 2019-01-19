@@ -8,7 +8,7 @@ from __project.prefect.classUse import Utils
 
 
 class MyDriver:
-    def __init__(self,outdirs,faceClassifyPath, windowname="DataSets",counter= 100,imgsize = 64):
+    def __init__(self,outdirs,faceClassifyPath, window="DataSets",counter= 100,imgsize = 64):
         '''
         采集人脸数据设备
         :param outdirs: 数据保存路径
@@ -19,9 +19,10 @@ class MyDriver:
         '''
         self.outdirs = outdirs
         self.faceClassifyPath = faceClassifyPath
-        self.windowname = windowname
+        self.window = window
         self.counter = counter
         self.imgsize = imgsize
+
 
 
     # 获取设备
@@ -79,7 +80,7 @@ class MyDriver:
                 # 4.3.4 标记人脸
                 frame = cv.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
                 # 4.3.5 显示图像
-                cv.imshow(self.windowname, frame)
+                cv.imshow(self.window, frame)
                 # 4.3.6 改变索引
                 num += 1
             # 4.3.7 退出窗体的操作(按键)
@@ -105,11 +106,11 @@ class MyDriver:
         # 创建保存路径
         Utils.createDir(self.outdirs)
         # 获取设备
-        self.getCamera(self.faceClassifyPath, window="Data")
+        self.camera, self.classfier, self.window = MyDriver.getCamera(self.faceClassifyPath, window="DataSets")
         # 采集图像
         self.collection()
         # 关闭设备
-        self.close(self.camera,self.windowname)
+        MyDriver.close(self.camera,self.window)
 
 
         # # 创建保存路径

@@ -24,7 +24,7 @@ def readText(text):
     engine.say(text)
     engine.runAndWait()
 
-def createdir(*args):
+def createDir(*args):
     ''' 创建处理后的文件保存目录 '''
     for item in args:
         if not os.path.exists(item):
